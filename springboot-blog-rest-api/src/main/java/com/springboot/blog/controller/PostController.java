@@ -30,6 +30,7 @@ public class PostController {
     }
 
     // get all posts rest api
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/api/v1/posts")
     public PostResponse getAllPosts(
             @RequestParam(value = "pageNo", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER, required = false) int pageNo,
